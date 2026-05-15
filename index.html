@@ -135,6 +135,7 @@ section{position:relative;z-index:1;padding:96px 5%;}
   border-radius:100px;background:rgba(0,240,176,0.05);margin-bottom:22px;
 }
 .hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);animation:blink 1.4s infinite;}
+.hero-badge::after{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);animation:blink 1.4s infinite;}
 
 .hero-title{font-size:clamp(30px,5vw,70px);font-weight:600;letter-spacing:-3px;line-height:1.0;margin-bottom:8px;}
 .ht1{color:var(--text);}
@@ -492,42 +493,21 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 5%;d
 <!-- ===== HOME ===== -->
 <section id="home">
   <div class="hero-left">
-    <div class="hero-badge">Open to Work — Junior AI / ML Engineer</div>
+    <div class="hero-badge">Open to Work</div>
     <h1 class="hero-title">
       <span class="ht1">Fauzan Afif Lutfiansah</span><br>
-      <!-- <span class="ht2">Afif</span><br>
-      <span class="ht3">Lutfiansah</span> -->
     </h1>
-    <!-- <p class="hero-desc">
-      <em>AI Engineer · Cyber Security · IT Support</em><br>
-      S1 Teknik Informatika <em>Cumlaude (IPK 3,79)</em><br>
-      Universitas Darussalam Gontor · Kebumen, Jawa Tengah 
-    </p> -->
     <div class="hero-chips">
-      <span class="cpill cp-g">Machine Learning</span>
-      <span class="cpill cp-b">NLP & Sentiment Analysis</span>
+      <span class="cpill cp-g">IT Support</span>
+      <span class="cpill cp-b">AI Engineer</span>
       <span class="cpill cp-p">Cyber Security</span>
-      <span class="cpill cp-o">IT Helpdesk L1–L2</span>
+      <!-- <span class="cpill cp-o">IT Helpdesk L1–L2</span>
       <span class="cpill cp-g">Python · TensorFlow</span>
-      <span class="cpill cp-b">Data Analysis</span>
+      <span class="cpill cp-b">Data Analysis</span> -->
     </div>
     <div class="hero-btns">
       <a href="#about" class="btn-p">About Me</a>
       <!-- <a href="#about" class="btn-o">About Me</a> -->
-    </div>
-    <!-- <div class="terminal">
-      <div class="term-head">
-        <div class="td td1"></div><div class="td td2"></div><div class="td td3"></div>
-        <span class="term-head-label">fauzan@portfolio ~ $</span>
-      </div> -->
-      <!-- <div class="term-body">
-        <div class="tline"><span class="tp">$</span><span class="tv">cat profile.json</span></div>
-        <div class="tline"><span class="tm">"role": </span><span style="color:var(--accent);">"Junior AI Engineer / ML Engineer"</span></div>
-        <div class="tline"><span class="tm">"ipk": </span><span style="color:var(--accent);">"3.79 / 4.00 — Cumlaude"</span></div>
-        <div class="tline"><span class="tm">"skills": </span><span style="color:var(--blue);">["ML", "NLP", "IT Support", "NetSec"]</span></div>
-        <div class="tline"><span class="tp">$</span><span class="tv">echo $STATUS</span></div>
-        <div class="tline"><span style="color:var(--accent);">Ready to contribute 🚀</span><span class="tcursor"></span></div>
-      </div> -->
     </div>
   </div>
 
@@ -538,11 +518,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 5%;d
       <div class="pring"></div>
       <div class="pring-mask"></div>
       <div class="photo-box">
-        <!--
-          PASANG FOTO ANDA:
-          Hapus div.ph-placeholder, ganti dengan:
-          
-        -->
+
         <div class="ph-placeholder">
           <img src="Asset\ojan2.png" alt="Fauzan Afif">
         </div>
@@ -562,28 +538,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 5%;d
 </section>
 
 <!-- ===== ABOUT ===== -->
-<section id="about">
-  <!-- <div class="about-grid"> -->
-    <!-- SQUARE PHOTO -->
-    <!-- <div class="about-photo-wrap reveal">
-      <div class="about-frame">
-        <div class="aring-out"></div>
-        <div class="aring"></div>
-        <div class="aring-mask"></div>
-        <div class="abox">
-          
-            FOTO ABOUT:
-            Ganti div.a-avatar dengan: <img src="foto-fauzan.jpg" alt="Fauzan">
-          -->
-          <!-- <div class="a-avatar">FA</div>
-        </div>
-      </div>
-      <div class="about-badge">
-        <strong class="bn">2+</strong>
-        <span class="bl">Tahun<br>Pengalaman</span>
-      </div> -->
-    <!-- </div> --> 
-    <!-- TEXT -->
+<section id="about">  
     <div class="about-text reveal">
       <span class="stag">Tentang Saya</span>
       <h2 class="sec-title" style="font-size:clamp(30px,4vw,48px);">Who Am I?</h2>
@@ -617,7 +572,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 5%;d
         <div class="exp-period">Sep 2025 – Sekarang</div>
       </div>
       <ul class="exp-items">
-        <li>Menangani <strong style="color:var(--text);">&gt;100 unit laptop trouble per bulan</strong> level L1–L2 dengan winrate rata-rata <strong style="color:var(--accent);">92.5%</strong>.</li>
+        <li>Menangani 100 unit laptop trouble per bulan level L1–L2 dengan winrate rata-rata 92.5%.</li>
         <li>Ticketing: diagnosa awal dan perbaikan kerusakan hardware dan software.</li>
         <li>Instalasi sistem operasi Windows, driver, dan aplikasi pendukung.</li>
         <li>Memberikan solusi teknis langsung kepada pengguna (frontdesk & helpdesk).</li>
@@ -634,10 +589,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 5%;d
         <div class="exp-period">2024</div>
       </div>
       <ul class="exp-items">
-        <li>Memimpin pengembangan pipeline analisis sentimen <strong style="color:var(--text);">end-to-end</strong> (pengumpulan data, preprocessing, pelabelan, pemodelan, dan evaluasi).</li>
-        <li>Menerapkan teknik <strong style="color:var(--text);">NLP dan Machine Learning</strong> untuk klasifikasi sentimen.</li>
+        <li>Memimpin pengembangan pipeline analisis sentimen  (pengumpulan data, preprocessing, pelabelan, pemodelan, dan evaluasi).</li>
+        <li>Menerapkan teknik NLP dan Machine Learning untuk klasifikasi sentimen.</li>
         <li>Menyajikan hasil analisis melalui laporan dan visualisasi data untuk mendukung pengambilan keputusan.</li>
-        <li>Proyek meraih <strong style="color:var(--orange);">🏆 Juara 1 Riset Terbaik tingkat universitas.</strong></li>
+        <li>Proyek meraih 🏆 Juara 1 Riset Terbaik tingkat universitas.</li>
       </ul>
     </div>
 
@@ -683,7 +638,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 5%;d
         <div class="exp-period">2023 – 2025</div>
       </div>
       <ul class="exp-items">
-        <li>Pemateri pada lebih dari <strong style="color:var(--text);">5 sesi pelatihan IT</strong> dengan total <strong style="color:var(--accent);">500+ peserta</strong> mahasiswa dan umum.</li>
+        <li>Pemateri pada lebih dari 5 sesi pelatihan IT dengan total 500+ peserta mahasiswa dan umum.</li>
         <li>Materi troubleshooting komputer hardware & software tingkat dasar–menengah.</li>
         <li>Edukasi dasar keamanan siber: penggunaan sistem aman & pencegahan risiko malware.</li>
         <li>Melatih peserta dalam identifikasi masalah perangkat dan langkah penyelesaian sistematis.</li>
