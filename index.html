@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fauzan Afif Lutfiansah — AI Engineer · Cyber Security · IT Support</title>
+<title>Fauzan Afif Lutfiansah — IT Support · AI Engineer · Cyber Security</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
@@ -157,6 +157,124 @@ section{position:relative;z-index:1;padding:96px 5%;}
 .btn-p:hover{background:#00d498;transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,240,176,0.28);}
 .btn-o{padding:12px 24px;color:var(--text);font-weight:700;font-size:11px;font-family:var(--mono);letter-spacing:1px;text-transform:uppercase;border-radius:6px;text-decoration:none;border:1px solid var(--border);background:transparent;transition:all 0.2s;display:inline-block;}
 .btn-o:hover{border-color:var(--accent);color:var(--accent);background:rgba(0,240,176,0.04);}
+
+/* ===== CERTIFICATE FILTER BAR ===== */
+.cert-filter-bar{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:38px;}
+.cert-filter-btn{
+  font-family:var(--mono);font-size:11px;letter-spacing:0.8px;text-transform:uppercase;
+  padding:9px 18px;border-radius:100px;border:1px solid var(--border);
+  background:var(--card);color:var(--muted2);cursor:pointer;
+  transition:all 0.22s ease;
+}
+.cert-filter-btn:hover{border-color:rgba(0,240,176,0.32);color:var(--accent);}
+.cert-filter-btn.active{
+  background:var(--accent);color:var(--bg);border-color:var(--accent);font-weight:700;
+  box-shadow:0 6px 18px rgba(0,240,176,0.24);
+}
+
+/* ===== CERTIFICATE GALLERY GRID ===== */
+.cert-gallery{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+}
+.cert-item{
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  overflow:hidden;transition:all 0.3s ease;
+}
+.cert-item:hover{border-color:rgba(0,240,176,0.24);transform:translateY(-4px);box-shadow:0 16px 46px rgba(0,0,0,0.46);}
+
+.cert-thumb{position:relative;aspect-ratio:4/3;background:var(--card2);overflow:hidden;cursor:pointer;}
+.cert-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease;}
+.cert-item:hover .cert-thumb img{transform:scale(1.06);}
+
+.cert-thumb-overlay{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  background:rgba(5,8,15,0.62);opacity:0;transition:opacity 0.25s ease;
+}
+.cert-item:hover .cert-thumb-overlay{opacity:1;}
+.cert-zoom-icon{
+  font-family:var(--mono);font-size:11px;color:var(--text);
+  border:1px solid rgba(216,232,255,0.3);padding:8px 14px;border-radius:100px;
+  background:rgba(8,12,23,0.7);backdrop-filter:blur(4px);
+}
+
+.cert-item-body{padding:16px 18px;}
+.cert-cat-tag{
+  display:inline-block;font-family:var(--mono);font-size:9px;letter-spacing:0.6px;text-transform:uppercase;
+  padding:3px 9px;border-radius:4px;margin-bottom:9px;
+}
+.cat-it{background:rgba(0,240,176,0.08);color:var(--accent);border:1px solid rgba(0,240,176,0.22);}
+.cat-ai{background:rgba(59,142,255,0.08);color:var(--blue);border:1px solid rgba(59,142,255,0.22);}
+.cat-cyber{background:rgba(168,85,247,0.08);color:var(--purple);border:1px solid rgba(168,85,247,0.22);}
+
+.cert-item-name{font-size:14px;font-weight:700;line-height:1.4;margin-bottom:4px;}
+.cert-item-org{font-family:var(--mono);font-size:10px;color:var(--muted2);}
+
+/* filtered-out item */
+.cert-item.cert-hidden{display:none;}
+
+/* empty state */
+.cert-empty{text-align:center;padding:50px 20px;}
+.cert-empty-icon{font-size:34px;margin-bottom:10px;opacity:0.6;}
+.cert-empty-text{font-family:var(--mono);font-size:12px;color:var(--muted2);}
+
+/* ===== CERTIFICATE MODAL ===== */
+.cert-modal{
+  position:fixed;inset:0;z-index:2000;display:none;
+  align-items:center;justify-content:center;padding:24px;
+}
+.cert-modal.open{display:flex;}
+.cert-modal-backdrop{
+  position:absolute;inset:0;background:rgba(5,8,15,0.92);backdrop-filter:blur(6px);
+  animation:fadeUp 0.25s ease both;
+}
+.cert-modal-content{
+  position:relative;z-index:1;max-width:880px;width:100%;max-height:90vh;
+  background:var(--card);border:1px solid var(--border);border-radius:16px;
+  overflow:hidden;display:flex;flex-direction:column;
+  animation:fadeUp 0.3s ease both;
+}
+.cert-modal-close{
+  position:absolute;top:14px;right:14px;z-index:3;
+  width:36px;height:36px;border-radius:50%;border:1px solid var(--border);
+  background:rgba(5,8,15,0.7);color:var(--text);font-size:16px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:all 0.2s;
+}
+.cert-modal-close:hover{background:var(--accent);color:var(--bg);border-color:var(--accent);}
+.cert-modal-imgwrap{
+  flex:1;min-height:0;display:flex;align-items:center;justify-content:center;
+  background:var(--surface);padding:20px;overflow:auto;
+}
+.cert-modal-imgwrap img{max-width:100%;max-height:70vh;object-fit:contain;border-radius:6px;}
+.cert-modal-footer{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:18px 24px;border-top:1px solid var(--border);flex-wrap:wrap;
+}
+.cert-modal-name{font-size:15px;font-weight:700;margin-bottom:3px;}
+.cert-modal-org{font-family:var(--mono);font-size:10px;color:var(--muted2);}
+.cert-modal-download{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;
+  padding:10px 20px;background:var(--accent);color:var(--bg);border-radius:7px;
+  text-decoration:none;transition:all 0.2s;white-space:nowrap;
+}
+.cert-modal-download:hover{background:#00d498;transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,240,176,0.28);}
+.cert-modal-download.disabled{
+  background:var(--card2);color:var(--muted);cursor:not-allowed;pointer-events:none;border:1px solid var(--border);
+}
+
+/* ===== RESPONSIVE GALLERY ===== */
+@media(max-width:1024px){
+  .cert-gallery{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:768px){
+  .cert-gallery{grid-template-columns:1fr;}
+  .cert-filter-bar{gap:8px;}
+  .cert-filter-btn{padding:8px 14px;font-size:10px;}
+  .cert-modal-content{max-height:94vh;}
+  .cert-modal-imgwrap img{max-height:58vh;}
+  .cert-modal-footer{flex-direction:column;align-items:flex-start;}
+  .cert-modal-download{width:100%;justify-content:center;}
+}
 
 /* TERMINAL */
 .terminal{margin-top:26px;background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;}
@@ -460,7 +578,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 5%;d
     </div>
     <div>
       <div class="nav-name">Fauzan Afif</div>
-      <div class="nav-sub"><span class="ndot"></span>AI Engineer · Cyber Security · IT Support</div>
+      <div class="nav-sub"></span>IT Support · AI Engineer · Cyber Security</div>
     </div>
   </div>
 
@@ -542,15 +660,41 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 5%;d
     <div class="about-text reveal">
       <span class="stag">Tentang Saya</span>
       <h2 class="sec-title" style="font-size:clamp(30px,4vw,48px);">Who Am I?</h2>
-      <p>Saya <strong>Fauzan Afif Lutfiansah</strong>, lulusan <b>S1 Teknik Informatika Cumlaude (IPK 3,79/4,00)</b> dari Universitas Darussalam Gontor, Ponorogo. Berlokasi di <b>Kebumen, Jawa Tengah</b>.</p>
-      <p>Memiliki minat kuat pada <strong>Machine Learning, Natural Language Processing (NLP)</strong>, dan <strong>Analisis Data</strong>. Berpengalaman membangun pipeline ML end-to-end — dari pengumpulan data, preprocessing, pemodelan, hingga deployment berbasis web untuk pengguna non-teknis.</p>
-      <p>Aktif sebagai <b>IT Helpdesk L1–L2</b> di Teknisigo Jakarta dengan winrate <strong>92.5%</strong> menangani &gt;100 unit/bulan. Juga berpengalaman sebagai <b>pemateri seminar IT & Cybersecurity</b> untuk 500+ peserta. Lolos <strong>Bangkit Academy 2024</strong> by Google, GOTO & Traveloka.</p>
-      <div class="about-stats">
+
+<p>
+Saya <strong>Fauzan Afif Lutfiansah</strong>, lulusan 
+<b>S1 Teknik Informatika Cumlaude (IPK 3,79/4,00)</b> dari 
+Universitas Darussalam Gontor, Ponorogo. Berlokasi di 
+<b>Kebumen, Jawa Tengah</b>.
+</p>
+
+<p>
+Memiliki pengalaman lebih dari <strong>2 tahun</strong> di bidang 
+<strong>IT Support, Helpdesk, Troubleshooting Hardware & Software, 
+Maintenance Laptop/PC, Instalasi OS, serta Network Support, Cloud Service Management Printing</strong>
+(TCP/IP, LAN, Wi-Fi). Terbiasa menangani permasalahan teknis pengguna,
+melakukan konfigurasi perangkat, sistem ticketing, serta penerapan SOP/SLA
+untuk menjaga kelancaran operasional IT.
+</p>
+
+<p>
+Berpengalaman sebagai <b>IT Helpdesk L1–L3</b> dengan menangani 
+<strong>100+ unit laptop per bulan</strong>, melakukan diagnosis dan perbaikan
+perangkat, serta memberikan dukungan teknis kepada pengguna. Memiliki pengalaman
+dalam implementasi teknologi AI, pengembangan aplikasi berbasis web, serta
+pemanfaatan <strong>Machine Learning, Natural Language Processing (NLP), dan Analisis Data</strong>.
+</p>
+
+<p>
+Aktif sebagai <b>pemateri seminar IT & Cybersecurity</b> dengan pengalaman
+lebih dari <strong>500 peserta</strong>, serta merupakan alumni 
+<strong>Bangkit Academy 2024</strong> by Google, GOTO & Traveloka.
+</p><!-- <div class="about-stats">
         <div class="as"><strong class="n">3+</strong><span class="l">Cyber Scurity</span></div>
         <div class="as"><strong class="n">92.5%</strong><span class="l">AI Projects</span></div>
         <div class="as"><strong class="n">500+</strong><span class="l">Peserta Seminar</span></div>
         <div class="as"><strong class="n">10K+</strong><span class="l">Data Handled</span></div>
-      </div>
+      </div> -->
     </div>
   </div>
 </section>
@@ -684,9 +828,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 5%;d
     <li>Melatih peserta dalam penerapan prosedur keamanan serta penanganan insiden siber secara efektif.</li>
   </ul>
 </div>
-```
-
-
   </div>
 </section>
 
@@ -739,9 +880,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 5%;d
         <div class="sbr"><div class="sbr-top"><span class="sbr-label">Cybersecurity Awareness</span><span class="sbr-pct">78%</span></div><div class="sbr-track"><div class="sbr-fill" style="width:78%"></div></div></div>
         <div class="sbr"><div class="sbr-top"><span class="sbr-label">Network Support Dasar</span><span class="sbr-pct">72%</span></div><div class="sbr-track"><div class="sbr-fill" style="width:72%"></div></div></div>
       </div>
-      <div class="sk-tags" style="margin-top:10px;">
+      <!-- <div class="sk-tags" style="margin-top:10px;">
         <span class="sk-tag">Malware Prevention</span><span class="sk-tag">CCTV</span><span class="sk-tag">LAN</span><span class="sk-tag">SOP IT</span>
-      </div>
+      </div> -->
     </div>
 
     <div class="sk-card reveal">
@@ -788,7 +929,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 5%;d
         </div>
         <div class="proj-name">SENTILAB — Sentiment Analysis Web App</div>
         <div class="proj-desc">Aplikasi analisis sentimen berbasis web untuk pengguna non-teknis. Preprocessing otomatis, pelabelan sentimen, dan visualisasi hasil. Mengintegrasikan 5 model ML: Naive Bayes, SVM, KNN, Random Forest, AdaBoost. Diuji dengan ribuan data.</div>
-        <a href="https://github.com/fauzanafif/Sentiment_Analisis_Laboratorium" class="proj-link">Lihat Project →</a>
+        <a href="https://github.com/fauzanafif/Sentiment_Analisis_Laboratorium" class="proj-link">Lihat Project</a>
       </div>
     </div>
 
@@ -810,9 +951,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 5%;d
     </div>
 
     <!-- PROJECT 3 — GROWUP STUNTING -->
+     
     <div class="proj-card reveal">
       <div class="proj-thumb pt2">
-        👶
+        <img src="Asset\Certificates\Growup.png" alt="Foto">
         <div class="proj-scanline"></div>
       </div>
       <div class="proj-body">
@@ -821,11 +963,11 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 5%;d
         </div>
         <div class="proj-name">GrowUp — Deteksi Dini Stunting</div>
         <div class="proj-desc">ML Engineer pada capstone project Bangkit Academy 2024. Mengolah dataset kesehatan, mengembangkan & evaluasi model ML menggunakan TensorFlow, SVM, dan CNN. Berkolaborasi dengan Cloud Engineer untuk deployment ke aplikasi mobile deteksi dini stunting.</div>
-        <a href="#" class="proj-link">Lihat Project →</a>
+        <a href="https://github.com/fauzanafif/GroUp" class="proj-link">Lihat Project →</a>
       </div>
     </div>
 
-    <!-- PROJECT 4 — QRIS SENTIMEN -->
+    <!-- PROJECT 4 — QRIS SENTIMEN
     <div class="proj-card reveal">
       <div class="proj-thumb pt5">
         📱
@@ -839,9 +981,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 5%;d
         <div class="proj-desc">Scraping data komentar YouTube & eksplorasi opini pengguna QRIS. Text preprocessing (cleaning, tokenization, stopword removal, stemming). Pengembangan & evaluasi model klasifikasi sentimen positif/negatif/netral dengan visualisasi insight.</div>
         <a href="#" class="proj-link">Lihat Project →</a>
       </div>
-    </div>
+    </div> -->
 
-    <!-- PROJECT 5 — TAHFIDZ REPORT -->
+    <!-- PROJECT 5 — TAHFIDZ REPORT
     <div class="proj-card reveal">
       <div class="proj-thumb pt4">
         📊
@@ -855,9 +997,9 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 5%;d
         <div class="proj-desc">Analisis dan visualisasi data progres tahfidz mahasiswa secara periodik. Menyusun infografis data untuk kebutuhan monitoring & evaluasi institusi. Menyediakan insight perkembangan capaian sebagai bahan pelaporan.</div>
         <a href="#" class="proj-link">Lihat Project →</a>
       </div>
-    </div>
+    </div> -->
 
-    <!-- PROJECT 6 — KHUTBATUL ARSY -->
+    <!-- PROJECT 6 — KHUTBATUL ARSY
     <div class="proj-card reveal">
       <div class="proj-thumb pt2">
         📋
@@ -871,7 +1013,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 5%;d
         <div class="proj-desc">Mengelola dataset undangan <strong style="color:var(--text);">10.000+ entri</strong> untuk acara skala besar. Data cleaning, validasi, dan deduplikasi untuk memastikan kualitas data. Mengelola distribusi undangan berbasis data terverifikasi dengan akurasi & konsistensi tinggi.</div>
         <a href="#" class="proj-link">Lihat Project →</a>
       </div>
-    </div>
+    </div> -->
 
     <!-- PROJECT 7 — CYBER SECURITY (placeholder) -->
     <div class="proj-card reveal" style="border-color:rgba(168,85,247,0.22);">
@@ -889,7 +1031,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 5%;d
       </div>
     </div>
 
-    <!-- PROJECT 8 — IT SUPPORT PROJECT -->
+    <!-- PROJECT 8 — IT SUPPORT PROJECT
     <div class="proj-card reveal">
       <div class="proj-thumb pt1">
         🖥️
@@ -903,73 +1045,258 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 5%;d
         <div class="proj-desc">Menangani >100 unit laptop/bulan level L1–L2 (winrate 92.5%). Diagnosa hardware & software, instalasi OS, dokumentasi teknis, dan pendampingan user non-teknis secara komunikatif di PT Gian Teknokindo Solusi Jakarta.</div>
         <a href="#exp" class="proj-link">Lihat Experience →</a>
       </div>
-    </div>
+    </div> -->
 
   </div>
 </section>
 
+<section id="cert">
 <!-- ===== CERTIFICATIONS ===== -->
 <section id="cert">
   <div style="text-align:center;" class="reveal">
     <span class="stag">Sertifikasi</span>
     <h2 class="sec-title">Certifications</h2>
   </div>
-  <div class="cert-grid">
-    <div class="cert-card reveal">
-      <div class="cert-icon">🧠</div>
-      <div class="cert-name">Machine Learning Path — Bangkit Academy 2024</div>
-      <div class="cert-org">Google, GOTO & Traveloka</div>
-      <div class="cert-year orange">★ Bangkit Graduate 2024</div>
+
+  <!-- FILTER BUTTONS -->
+  <div class="cert-filter-bar reveal">
+    <button class="cert-filter-btn active" data-filter="all">All Certificate</button>
+    <button class="cert-filter-btn" data-filter="it-support">IT Support</button>
+    <button class="cert-filter-btn" data-filter="ai-engineer">Software / AI Engineer</button>
+    <button class="cert-filter-btn" data-filter="cyber-security">Cyber Security</button>
+  </div>
+
+  <!-- GALLERY GRID -->
+  <div class="cert-gallery" id="certGallery">
+
+    <div class="cert-item reveal" data-category="ai-engineer">
+      <div class="cert-thumb">
+        <img src="Asset/Certificates/Bangkit certificate.png" alt="Machine Learning Path - Bangkit Academy 2024" loading="lazy">
+        <div class="cert-thumb-overlay">
+          <span class="cert-zoom-icon">🔍 Lihat Sertifikat</span>
+        </div>
+      </div>
+      <div class="cert-item-body">
+        <span class="cert-cat-tag cat-ai">Software / AI Engineer</span>
+        <div class="cert-item-name">Machine Learning Path — Bangkit Academy 2024</div>
+        <div class="cert-item-org">Google, GOTO & Traveloka</div>
+      </div>
     </div>
-    <div class="cert-card reveal">
-      <div class="cert-icon">🤖</div>
-      <div class="cert-name">Machine Learning & Deep Learning</div>
-      <div class="cert-org">DeepLearning.AI</div>
-      <div class="cert-year green">✓ Verified</div>
+
+    <div class="cert-item reveal" data-category="ai-engineer">
+      <div class="cert-thumb">
+        <img src="Asset/Certificates/ML Stanfold-1.png" alt="Machine Learning and Deep Learning" loading="lazy">
+        <div class="cert-thumb-overlay">
+          <span class="cert-zoom-icon">🔍 Lihat Sertifikat</span>
+        </div>
+      </div>
+      <div class="cert-item-body">
+        <span class="cert-cat-tag cat-ai">Software / AI Engineer</span>
+        <div class="cert-item-name">Machine Learning & Deep Learning</div>
+        <div class="cert-item-org">DeepLearning.AI</div>
+      </div>
     </div>
-    <div class="cert-card reveal">
-      <div class="cert-icon">✨</div>
-      <div class="cert-name">Generative AI</div>
-      <div class="cert-org">Google</div>
-      <div class="cert-year green">✓ Verified</div>
+
+    <div class="cert-item reveal" data-category="ai-engineer">
+      <div class="cert-thumb">
+        <img src="Asset/Certificates/Generative AI For Everyone-1.png" alt="Generative AI Google" loading="lazy">
+        <div class="cert-thumb-overlay">
+          <span class="cert-zoom-icon">🔍 Lihat Sertifikat</span>
+        </div>
+      </div>
+      <div class="cert-item-body">
+        <span class="cert-cat-tag cat-ai">Software / AI Engineer</span>
+        <div class="cert-item-name">Generative AI</div>
+        <div class="cert-item-org">Google</div>
+      </div>
     </div>
-    <div class="cert-card reveal">
-      <div class="cert-icon">📈</div>
-      <div class="cert-name">Data Analysis Certification</div>
-      <div class="cert-org">Vektor</div>
-      <div class="cert-year green">✓ Verified</div>
+
+    <div class="cert-item reveal" data-category="ai-engineer">
+      <div class="cert-thumb">
+        <img src="Asset/Certificates/Data Analys.png" alt="Data Analysis Certification" loading="lazy">
+        <div class="cert-thumb-overlay">
+          <span class="cert-zoom-icon">🔍 Lihat Sertifikat</span>
+        </div>
+      </div>
+      <div class="cert-item-body">
+        <span class="cert-cat-tag cat-ai">Software / AI Engineer</span>
+        <div class="cert-item-name">Data Analysis Certification</div>
+        <div class="cert-item-org">Vektor</div>
+      </div>
     </div>
-    <div class="cert-card reveal">
-      <div class="cert-icon">📊</div>
-      <div class="cert-name">Tableau Mastery</div>
-      <div class="cert-org">Skill Academy — Ruangguru</div>
-      <div class="cert-year green">✓ Verified</div>
+
+    <div class="cert-item reveal" data-category="ai-engineer">
+      <div class="cert-thumb">
+        <img src="Asset/Certificates/tableau 2.png" alt="Tableau Mastery" loading="lazy">
+        <div class="cert-thumb-overlay">
+          <span class="cert-zoom-icon">🔍 Lihat Sertifikat</span>
+        </div>
+      </div>
+      <div class="cert-item-body">
+        <span class="cert-cat-tag cat-ai">Software / AI Engineer</span>
+        <div class="cert-item-name">Tableau Mastery</div>
+        <div class="cert-item-org">Skill Academy — Ruangguru</div>
+      </div>
     </div>
-    <div class="cert-card reveal">
-      <div class="cert-icon">🐍</div>
-      <div class="cert-name">Python Programming & SQL Query</div>
-      <div class="cert-org">Decoding</div>
-      <div class="cert-year green">✓ Verified</div>
+
+    <div class="cert-item reveal" data-category="ai-engineer" data-pdf="assets/certificates/python-sql-decoding.pdf">
+      <div class="cert-thumb">
+        <img src="Asset/Certificates/Python.png" alt="Python Programming and SQL Query" loading="lazy">
+        <div class="cert-thumb-overlay">
+          <span class="cert-zoom-icon">🔍 Lihat Sertifikat</span>
+        </div>
+      </div>
+      <div class="cert-item-body">
+        <span class="cert-cat-tag cat-ai">Software / AI Engineer</span>
+        <div class="cert-item-name">Python Programming & SQL Query</div>
+        <div class="cert-item-org">Google</div>
+      </div>
     </div>
-    <div class="cert-card reveal">
-      <div class="cert-icon">📋</div>
-      <div class="cert-name">Microsoft Excel</div>
-      <div class="cert-org">Certiport</div>
-      <div class="cert-year green">✓ Verified</div>
+
+    <div class="cert-item reveal" data-category="it-support">
+      <div class="cert-thumb">
+        <img src="Asset/Certificates/Excell Certiport.png" alt="Microsoft Excel Certification" loading="lazy">
+        <div class="cert-thumb-overlay">
+          <span class="cert-zoom-icon">🔍 Lihat Sertifikat</span>
+        </div>
+      </div>
+      <div class="cert-item-body">
+        <span class="cert-cat-tag cat-it">IT Support</span>
+        <div class="cert-item-name">Microsoft Excel</div>
+        <div class="cert-item-org">Certiport</div>
+      </div>
     </div>
-    <div class="cert-card reveal">
-      <div class="cert-icon">🔧</div>
-      <div class="cert-name">Basic & Advance Service Laptop L1–L2 / L3</div>
-      <div class="cert-org">Teknisigo</div>
-      <div class="cert-year green">✓ Verified</div>
+
+    <div class="cert-item reveal" data-category="it-support">
+      <div class="cert-thumb">
+        <img src="Asset/Certificates/Advance-Teknisigo.jpeg" alt="Basic and Advance Service Laptop L1-L2/L3" loading="lazy">
+        <div class="cert-thumb-overlay">
+          <span class="cert-zoom-icon">🔍 Lihat Sertifikat</span>
+        </div>
+      </div>
+      <div class="cert-item-body">
+        <span class="cert-cat-tag cat-it">IT Support</span>
+        <div class="cert-item-name">Basic & Advance Service Laptop L1–L2 / L3</div>
+        <div class="cert-item-org">Teknisigo</div>
+      </div>
     </div>
-    <div class="cert-card reveal">
-      <div class="cert-icon">🌐</div>
-      <div class="cert-name">Bahasa Inggris B2</div>
-      <div class="cert-org">Al-Ikhtibar</div>
-      <div class="cert-year blue">B2 — Upper Intermediate</div>
+
+    <div class="cert-item reveal" data-category="it-support">
+      <div class="cert-thumb">
+        <img src="Asset/Certificates/ENGLISH.png" alt="English B2 Certificate" loading="lazy">
+        <div class="cert-thumb-overlay">
+          <span class="cert-zoom-icon">🔍 Lihat Sertifikat</span>
+        </div>
+      </div>
+      <div class="cert-item-body">
+        <span class="cert-cat-tag cat-it">IT Support</span>
+        <div class="cert-item-name">Bahasa Inggris B2</div>
+        <div class="cert-item-org">Al-Ikhtibar</div>
+      </div>
+    </div>
+
+
+          <div class="cert-item reveal" data-category="cyber-security" data-pdf="Asset/Certificates/KSL.pdf">
+        <div class="cert-thumb">
+          <img src="Asset/Certificates/Baner.png" alt="Nama Sertifikat" loading="lazy">
+          <div class="cert-thumb-overlay">
+            <span class="cert-zoom-icon">🔍 Lihat Sertifikat</span>
+          </div>
+        </div>
+        <div class="cert-item-body">
+          <span class="cert-cat-tag cat-cyber">Cyber Scurity</span>
+          <div class="cert-item-name">Ketua & Mentor Linux Comunity</div>
+          <div class="cert-item-org">KSL -Kelompok Studi Linux</div>
+        </div>
+      </div>
+
+
+      <div class="cert-item reveal" data-category="cyber-security" data-pdf="assets/certificates/nama-file.pdf">
+        <div class="cert-thumb">
+          <img src="assets/certificates/Cyber Scurity.png" alt="Nama Sertifikat" loading="lazy">
+          <div class="cert-thumb-overlay">
+            <span class="cert-zoom-icon">🔍 Lihat Sertifikat</span>
+          </div>
+        </div>
+        <div class="cert-item-body">
+          <span class="cert-cat-tag cat-cyber">Cyber Security</span>
+          <div class="cert-item-name">Cyber Scurity</div>
+          <div class="cert-item-org">MySkill</div>
+        </div>
+      </div>
+
+
+
+      <div class="cert-item reveal" data-category="cyber-security" data-pdf="assets/certificates/nama-file.pdf">
+        <div class="cert-thumb">
+          <img src="Asset/Certificates/Pemateri 1.png" alt="Nama Sertifikat" loading="lazy">
+          <div class="cert-thumb-overlay">
+            <span class="cert-zoom-icon">🔍 Lihat Sertifikat</span>
+          </div>
+        </div>
+        <div class="cert-item-body">
+          <span class="cert-cat-tag cat-cyber">Pemateri Seminar Cyber Scurity</span>
+          <div class="cert-item-name">Cybersecurity awareness awards</div>
+          <div class="cert-item-org">SMP Terpadu-Ponorogo</div>
+        </div>
+      </div>
+
+      <div class="cert-item reveal" data-category="cyber-security" data-pdf="assets/certificates/nama-file.pdf">
+        <div class="cert-thumb">
+          <img src="Asset/Certificates/pemateri 3.png" alt="Nama Sertifikat" loading="lazy">
+          <div class="cert-thumb-overlay">
+            <span class="cert-zoom-icon">🔍 Lihat Sertifikat</span>
+          </div>
+        </div>
+        <div class="cert-item-body">
+          <span class="cert-cat-tag cat-cyber">Pemateri Seminar Cyber Scurity</span>
+          <div class="cert-item-name">Cybersecurity awareness awards</div>
+          <div class="cert-item-org">SMP 1 Jetis -Ponorogo</div>
+        </div>
+      </div>
+
+      <div class="cert-item reveal" data-category="cyber-security" data-pdf="assets/certificates/nama-file.pdf">
+        <div class="cert-thumb">
+          <img src="Asset/Certificates/pemateri 4.png" alt="Nama Sertifikat" loading="lazy">
+          <div class="cert-thumb-overlay">
+            <span class="cert-zoom-icon">🔍 Lihat Sertifikat</span>
+          </div>
+        </div>
+        <div class="cert-item-body">
+          <span class="cert-cat-tag cat-cyber">Pemateri Seminar Cyber Scurity</span>
+          <div class="cert-item-name">Cybersecurity awareness awards</div>
+          <div class="cert-item-org">SMP Siman Ponorogo -Ponorogo</div>
+        </div>
+      </div>
+
+  </div>
+
+  <!-- EMPTY STATE (muncul jika filter tidak ada hasil)
+  <div class="cert-empty" id="certEmpty" style="display:none;">
+    <div class="cert-empty-icon">📂</div>
+    <div class="cert-empty-text">Belum ada sertifikat pada kategori ini.</div>
+  </div> -->
+</section>
+
+<!-- ===== CERTIFICATE MODAL ===== -->
+<div class="cert-modal" id="certModal">
+  <div class="cert-modal-backdrop" id="certModalBackdrop"></div>
+  <div class="cert-modal-content">
+    <button class="cert-modal-close" id="certModalClose" aria-label="Tutup">✕</button>
+    <div class="cert-modal-imgwrap">
+      <img src="" alt="" id="certModalImg">
+    </div>
+    <div class="cert-modal-footer">
+      <div class="cert-modal-info">
+        <div class="cert-modal-name" id="certModalName"></div>
+        <div class="cert-modal-org" id="certModalOrg"></div>
+      </div>
+      <a href="#" class="cert-modal-download" id="certModalDownload" download target="_blank" rel="noopener">
+        ⬇ Download PDF
+      </a>
     </div>
   </div>
+</div>
 </section>
 
 <!-- ===== EDUCATION ===== -->
@@ -1017,7 +1344,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 5%;d
       <div class="cv-icon">👨‍💻</div>
       <div class="cv-title">Fauzan Afif Lutfiansah</div>
       <div class="cv-meta">
-        AI Engineer · Cyber Security · IT Support<br>
+        IT Support · AI Engineer · Cyber Security<br>
         📍 Kebumen, Jawa Tengah<br>
         📞 087-715-769-615 &nbsp;·&nbsp; fauzanafiflutfiansah02@gmail.com
       </div>
@@ -1069,6 +1396,79 @@ window.addEventListener('scroll', () => {
       if (al) al.classList.add('active');
     }
   });
+});
+
+// ===== CERTIFICATE FILTER =====
+const certFilterBtns = document.querySelectorAll('.cert-filter-btn');
+const certItems = document.querySelectorAll('.cert-item');
+const certEmpty = document.getElementById('certEmpty');
+
+certFilterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    certFilterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const filter = btn.getAttribute('data-filter');
+    let visibleCount = 0;
+
+    certItems.forEach(item => {
+      const match = filter === 'all' || item.getAttribute('data-category') === filter;
+      item.classList.toggle('cert-hidden', !match);
+      if (match) visibleCount++;
+    });
+
+    certEmpty.style.display = visibleCount === 0 ? 'block' : 'none';
+  });
+});
+
+// ===== CERTIFICATE MODAL =====
+const certModal = document.getElementById('certModal');
+const certModalImg = document.getElementById('certModalImg');
+const certModalName = document.getElementById('certModalName');
+const certModalOrg = document.getElementById('certModalOrg');
+const certModalDownload = document.getElementById('certModalDownload');
+const certModalClose = document.getElementById('certModalClose');
+const certModalBackdrop = document.getElementById('certModalBackdrop');
+
+function openCertModal(item){
+  const imgSrc = item.querySelector('.cert-thumb img').getAttribute('src');
+  const imgAlt = item.querySelector('.cert-thumb img').getAttribute('alt');
+  const name = item.querySelector('.cert-item-name').textContent;
+  const org = item.querySelector('.cert-item-org').textContent;
+  const pdfPath = item.getAttribute('data-pdf');
+
+  certModalImg.setAttribute('src', imgSrc);
+  certModalImg.setAttribute('alt', imgAlt);
+  certModalName.textContent = name;
+  certModalOrg.textContent = org;
+
+  if (pdfPath) {
+    certModalDownload.setAttribute('href', pdfPath);
+    certModalDownload.classList.remove('disabled');
+    certModalDownload.textContent = '⬇ Download PDF';
+  } else {
+    certModalDownload.setAttribute('href', '#');
+    certModalDownload.classList.add('disabled');
+    certModalDownload.textContent = 'PDF Tidak Tersedia';
+  }
+
+  certModal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCertModal(){
+  certModal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+certItems.forEach(item => {
+  item.querySelector('.cert-thumb').addEventListener('click', () => openCertModal(item));
+});
+
+certModalClose.addEventListener('click', closeCertModal);
+certModalBackdrop.addEventListener('click', closeCertModal);
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && certModal.classList.contains('open')) closeCertModal();
 });
 </script>
 </body>

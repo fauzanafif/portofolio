@@ -1,1 +1,1 @@
-https://fauzan-afif.vercel.app/
+https://fauzanafif.vercel.app/
