@@ -23,6 +23,28 @@
   --mono:'Space Mono',monospace;
   --sans:'Outfit',sans-serif;
 }
+.proj-thumb {
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 12px;
+}
+
+.proj-thumb iframe {
+    width: 700%;
+    height: 280px;
+    border: none;
+    transform-origin: top left;
+    pointer-events: none;
+
+    /* hilangkan scrollbar */
+    scrollbar-width: none;
+}
+
+.proj-thumb iframe::-webkit-scrollbar {
+    display: none;
+}
+
 html{scroll-behavior:smooth;}
 body{font-family:var(--sans);background:var(--bg);color:var(--text);overflow-x:hidden;}
 
@@ -946,7 +968,7 @@ lebih dari <strong>500 peserta</strong>, serta merupakan alumni
         <div class="proj-award">🏆 Juara 1 Riset Terbaik — Universitas</div>
         <div class="proj-name">Riset: Sentimen Masyarakat terhadap Pesantren</div>
         <div class="proj-desc">Pipeline end-to-end analisis sentimen opini masyarakat Indonesia terhadap pesantren. Pengumpulan data, text preprocessing, pemodelan ML & NLP, evaluasi, dan visualisasi untuk mendukung pengambilan keputusan institusional.</div>
-        <a href="#" class="proj-link">Lihat Detail →</a>
+        <a href="https://github.com/fauzanafif/SENTIMEN-ANALYSIS_PKM2024" class="proj-link">Lihat Detail →</a>
       </div>
     </div>
 
@@ -999,22 +1021,6 @@ lebih dari <strong>500 peserta</strong>, serta merupakan alumni
       </div>
     </div> -->
 
-    <!-- PROJECT 6 — KHUTBATUL ARSY
-    <div class="proj-card reveal">
-      <div class="proj-thumb pt2">
-        📋
-        <div class="proj-scanline"></div>
-      </div>
-      <div class="proj-body">
-        <div class="proj-ptags">
-          <span class="ptag b">Data Management</span><span class="ptag g">Data Cleaning</span><span class="ptag o">Large Scale</span>
-        </div>
-        <div class="proj-name">Khutbatul 'Arsy UNIDA Gontor 2025</div>
-        <div class="proj-desc">Mengelola dataset undangan <strong style="color:var(--text);">10.000+ entri</strong> untuk acara skala besar. Data cleaning, validasi, dan deduplikasi untuk memastikan kualitas data. Mengelola distribusi undangan berbasis data terverifikasi dengan akurasi & konsistensi tinggi.</div>
-        <a href="#" class="proj-link">Lihat Project →</a>
-      </div>
-    </div> -->
-
     <!-- PROJECT 7 — CYBER SECURITY (placeholder) -->
     <div class="proj-card reveal" style="border-color:rgba(168,85,247,0.22);">
       <div class="proj-thumb pt3">
@@ -1023,13 +1029,76 @@ lebih dari <strong>500 peserta</strong>, serta merupakan alumni
       </div>
       <div class="proj-body">
         <div class="proj-ptags">
-          <span class="ptag p">Cyber Security</span><span class="ptag o">WAIT</span>
+          <span class="ptag p">Cyber Security</span><span class="ptag o">Python</span>
         </div>
         <div class="proj-name">Cyber Security Project</div>
-        <div class="proj-desc">Section ini akan Anda isi dengan project Cyber Security / Network Security Anda. Background: Pemateri seminar cybersecurity & malware awareness untuk 500+ peserta.</div>
+        <div class="proj-desc">WebCare adalah perangkat lunak pengujian penetrasi situs web sumber terbuka untuk Kali Linux yang mengintegrasikan berbagai alat pengintaian, pemindaian, dan penilaian kerentanan ke dalam satu antarmuka terminal yang sederhana.</div>
         <a href="https://github.com/fauzanafif/WebCare" class="proj-link">Lihat Project →</a>
       </div>
     </div>
+
+<div class="proj-card reveal" style="border-color:rgba(168,85,247,0.22);">
+
+<div class="proj-thumb pt3">
+    <iframe 
+        src="https://hbh-ikpm-banyumas.vercel.app/"
+        title="HBH IKPM Banyumas">
+    </iframe>
+
+    <div class="proj-scanline"></div>
+
+</div>
+  <div class="proj-body">
+    <div class="proj-ptags">
+      <span class="ptag b">Web App</span>
+      <span class="ptag g">HTML & CSS</span>
+      <span class="ptag o">Bootstrap</span>
+      <span class="ptag o">JavaScript</span>
+    </div>
+    <div class="proj-name">
+      Tablikh Akbar dan Buka Bersama IKPM Banyumas
+    </div>
+    <div class="proj-desc">
+      Website informasi acara <strong style="color:var(--text);">
+      Tablikh Akbar dan Buka Bersama IKPM Banyumas</strong>.
+      Dibangun dengan tampilan responsif menggunakan HTML, CSS,
+      Bootstrap, dan JavaScript untuk memudahkan penyampaian informasi
+      kegiatan kepada peserta.
+    </div>
+
+    <a href="https://github.com/fauzanafif/HBH_ikpm_banyumas" 
+       class="proj-link"
+       target="_blank">
+       Lihat Project →
+    </a>
+
+    <a href="https://hbh-ikpm-banyumas.vercel.app/" 
+       class="proj-link"
+       target="_blank">
+       Web →
+    </a>
+
+  </div>
+</div>
+
+
+    <!-- PROJECT 3 — GROWUP STUNTING -->
+     
+    <div class="proj-card reveal">
+      <div class="proj-thumb pt2">
+        <img src="Asset\Certificates\PCD.png" alt="Foto">
+        <div class="proj-scanline"></div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-ptags">
+          <span class="ptag g">Python</span><span class="ptag b">Dekstop apps</span><span class="ptag p">PCD</span>
+        </div>
+        <div class="proj-name">PCD - Dektop Apps</div>
+        <div class="proj-desc">Aplikasi pengolahan Citra digital berbasis dekstop menggunakan bahasa pemerograman python.</div>
+        <a href="https://github.com/fauzanafif/Aplikasi-Pengolahan-Citra-Berbasis-Dekstop" class="proj-link">Lihat Project →</a>
+      </div>
+    </div>
+
 
     <!-- PROJECT 8 — IT SUPPORT PROJECT
     <div class="proj-card reveal">
@@ -1039,9 +1108,9 @@ lebih dari <strong>500 peserta</strong>, serta merupakan alumni
       </div>
       <div class="proj-body">
         <div class="proj-ptags">
-          <span class="ptag g">IT Support</span><span class="ptag b">Helpdesk</span><span class="ptag g">Ticketing</span>
+          <span class="ptag g">Web App</span><span class="ptag b">HTML</span><span class="ptag g">CSS</span><span class="ptag g">Bootstrap</span>
         </div>
-        <div class="proj-name">IT Helpdesk Operations — Teknisigo</div>
+        <div class="proj-name">Web Undangan Buka Bersama-IKPM Banyumas</div>
         <div class="proj-desc">Menangani >100 unit laptop/bulan level L1–L2 (winrate 92.5%). Diagnosa hardware & software, instalasi OS, dokumentasi teknis, dan pendampingan user non-teknis secara komunikatif di PT Gian Teknokindo Solusi Jakarta.</div>
         <a href="#exp" class="proj-link">Lihat Experience →</a>
       </div>
