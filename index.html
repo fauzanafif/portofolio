@@ -162,7 +162,7 @@ section{position:relative;z-index:1;padding:96px 5%;}
 
 .hero-title{font-size:clamp(30px,5vw,70px);font-weight:600;letter-spacing:-3px;line-height:1.0;margin-bottom:8px;}
 .ht1{color:var(--text);}
-.ht2{background:linear-gradient(90deg,var(--accent),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.ht2{background:linear-gradient(90deg,var(--accent),var(--blue));background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .ht3{color:var(--text);}
 
 .hero-desc{font-family:var(--mono);font-size:11px;color:var(--muted2);line-height:1.9;margin-bottom:26px;max-width:460px;}
@@ -410,6 +410,22 @@ section{position:relative;z-index:1;padding:96px 5%;}
   flex-wrap: wrap;
 }
 
+.web-preview {
+  position: relative;
+  overflow: hidden;
+  background: #111;
+  height: 260px;
+}
+
+.web-preview iframe {
+  width: 117.65%;
+  height: 117.65%;
+  border: 0;
+  transform: scale(0.85);
+  transform-origin: top left;
+  pointer-events: none;
+}
+
 .as {
   text-align: center;
   border-left: none; /* optional biar simetris */
@@ -421,7 +437,6 @@ section{position:relative;z-index:1;padding:96px 5%;}
 .as .l{font-size:10px;color:var(--muted2);text-transform:uppercase;letter-spacing:1px;}
 
 /* ===== EXPERIENCE ===== */
-#exp{}
 .exp-list{display:flex;flex-direction:column;gap:20px;}
 .exp-card{
   background:var(--card);border:1px solid var(--border);
@@ -461,7 +476,6 @@ section{position:relative;z-index:1;padding:96px 5%;}
 .sk-tag{font-family:var(--mono);font-size:9px;padding:3px 7px;border-radius:3px;border:1px solid var(--border);color:var(--muted2);}
 
 /* ===== PROJECTS ===== */
-#projects{}
 .proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
 .proj-card{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:all 0.3s;}
 .proj-card:hover{border-color:rgba(0,240,176,0.22);transform:translateY(-4px);box-shadow:0 18px 54px rgba(0,0,0,0.48);}
@@ -504,7 +518,6 @@ section{position:relative;z-index:1;padding:96px 5%;}
 .cert-year.blue{color:var(--blue);}
 
 /* ===== EDUCATION ===== */
-#edu{}
 .edu-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:30px;position:relative;overflow:hidden;display:grid;grid-template-columns:1fr auto;gap:22px;align-items:start;}
 .edu-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--accent),var(--blue));}
 .edu-degree{font-size:19px;font-weight:800;margin-bottom:4px;}
@@ -601,7 +614,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 5%;d
     </div>
     <div>
       <div class="nav-name">Fauzan Afif</div>
-      <div class="nav-sub"></span>IT Support · AI & Software Engineer · Cyber Security</div>
+      <div class="nav-sub">IT Support · AI & Software Engineer · Cyber Security</div>
     </div>
   </div>
 
@@ -941,6 +954,42 @@ lebih dari <strong>500 peserta</strong>, serta merupakan alumni
   </div>
   <div class="proj-grid">
 
+    <!-- PROJECT 1 — PT SURYA INTI GAS -->
+    <div class="proj-card reveal">
+      <div class="proj-thumb pt1 web-preview">
+        <iframe
+          src="https://suryaintigas.com/id"
+          title="PT Surya Inti Gas Website"
+          loading="lazy">
+        </iframe>
+        <div class="proj-scanline"></div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-ptags">
+          <span class="ptag g">Laravel 13</span>
+          <span class="ptag g">PHP 8.4</span>
+          <span class="ptag g">React 18</span>
+          <span class="ptag g">Vite</span>
+          <span class="ptag b">REST API</span>
+          <span class="ptag b">Web App</span>
+        </div>
+        <div class="proj-name">Company Profile & Admin Platform — PT Surya Inti Gas</div>
+        <div class="proj-desc">
+          Platform company profile dan admin dashboard untuk PT Surya Inti Gas.
+          Menggunakan Laravel 13 sebagai REST API dan React 18 + Vite sebagai
+          frontend untuk mengelola konten perusahaan, produk, layanan, dan
+          informasi website secara dinamis.
+        </div>
+        <a
+          href="https://suryaintigas.com/id"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="proj-link">
+          Lihat Project ↗
+        </a>
+      </div>
+    </div>
+
     <!-- PROJECT 1 — SENTILAB -->
     <div class="proj-card reveal">
       <div class="proj-thumb pt1">
@@ -1122,7 +1171,6 @@ lebih dari <strong>500 peserta</strong>, serta merupakan alumni
   </div>
 </section>
 
-<section id="cert">
 <!-- ===== CERTIFICATIONS ===== -->
 <section id="cert">
   <div style="text-align:center;" class="reveal">
@@ -1358,11 +1406,11 @@ lebih dari <strong>500 peserta</strong>, serta merupakan alumni
 
   </div>
 
-  <!-- EMPTY STATE (muncul jika filter tidak ada hasil)
+  <!-- EMPTY STATE (muncul jika filter tidak ada hasil) -->
   <div class="cert-empty" id="certEmpty" style="display:none;">
     <div class="cert-empty-icon">📂</div>
     <div class="cert-empty-text">Belum ada sertifikat pada kategori ini.</div>
-  </div> -->
+  </div>
 </section>
 
 <!-- ===== CERTIFICATE MODAL ===== -->
@@ -1384,8 +1432,6 @@ lebih dari <strong>500 peserta</strong>, serta merupakan alumni
     </div>
   </div>
 </div>
-</section>
-
 <!-- ===== EDUCATION ===== -->
 <section id="edu">
   <div style="text-align:center;" class="reveal">
@@ -1408,7 +1454,7 @@ lebih dari <strong>500 peserta</strong>, serta merupakan alumni
         <li>Juara 2 English Daily Activity Vlog Universitas Darussalam Gontor 2024</li>
         <li>Ketua Himpunan Mahasiswa Teknik Informatika Universitas Darussalam Gontor</li>
         <li>Lolos Penelitian Bersama Dosen tingkat Nasional Dikkti</li>
-        <Li>Leader KSL ( Kelompok Studi Linux) 2023</Li>
+        <li>Leader KSL ( Kelompok Studi Linux) 2023</li>
         <li>Mentor KSL (Kelompok Studi Linux) UNIDA Gontor 2024-2025</li>
         <li>BPH Div.Sekertaris Dewan Mahasiswa Universitas Darussalam Gontor</li>
         <li>Sekertaris BEM Fakultas Sins Dan Teknologi 2025</li>
