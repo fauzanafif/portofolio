@@ -417,13 +417,11 @@ section{position:relative;z-index:1;padding:96px 5%;}
   height: 260px;
 }
 
-.web-preview iframe {
-  width: 117.65%;
-  height: 117.65%;
-  border: 0;
-  transform: scale(0.85);
-  transform-origin: top left;
-  pointer-events: none;
+.web-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
 }
 
 .as {
@@ -957,11 +955,7 @@ lebih dari <strong>500 peserta</strong>, serta merupakan alumni
     <!-- PROJECT 1 — PT SURYA INTI GAS -->
     <div class="proj-card reveal">
       <div class="proj-thumb pt1 web-preview">
-        <iframe
-          src="https://suryaintigas.com/id"
-          title="PT Surya Inti Gas Website"
-          loading="lazy">
-        </iframe>
+        <img src="Asset/SIG.png" alt="Tampilan website PT Surya Inti Gas" loading="lazy">
         <div class="proj-scanline"></div>
       </div>
       <div class="proj-body">
